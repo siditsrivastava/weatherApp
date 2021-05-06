@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="WeatherApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+
+    <link
+      href="//cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+    <script src="//code.angularjs.org/snapshot/angular-route.min.js"></script>
+    <script src="./app.js"></script>
+    <script src="./controllers/mainController.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-light logo">
+      <div class="container">
+        <div class="logo-title d-flex">
+          <img src="./assets/img/logo.png" alt="" width="55" height="44" />
+          <span>
+            <h6>Company Name</h6>
+            <small>tagline goes here...</small>
+          </span>
+        </div>
+      </div>
+    </nav>
+    <div ng-view=""></div>
+  </body>
+</html>

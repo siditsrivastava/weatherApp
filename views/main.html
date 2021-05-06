@@ -1,0 +1,54 @@
+<div class="container-fluid d-flex topbar ">
+    <div class="container mt-5  d-flex search-div ">
+        <input ng-model="city" class="form-control" id="input-box" type="text" placeholder=" Type your location...">
+        <button type="button" class="btn btn-info" id="btn" ng-click="fetchWeather(city)">Find</button>
+    </div>
+</div>
+
+<div class="container-fluid section">
+    <div class="container sub-section">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 p-0 ">
+                <div class="mon-top d-flex ">
+                    <div id="today-day">{{days[today.getDay()]}}</div>
+                    <div class="d-flex"><div id="today-month"> {{monthList[today.getMonth()] }}</div> <span><div id="date" class="px-1">{{today.getDate()}}</div></span></div>
+                </div>
+                <div class="mon-weather">
+                    <h2 id="para">{{mainInfo.name || 'New York'}}</h2>
+                    <div class="d-flex">
+                        <p id="result">{{mainInfo.main.temp || '20'}}</p><span>
+                            <p><sup>o</sup>C<img src="./assets/img/icon-1.svg" alt=""></p>
+                        </span>
+                    </div>
+                </div>
+                <div class="weather-icon">
+                    <div>
+                        <img src="./assets/img/icon-compass@2x.png" alt="" width="22"><span>East</span>
+                    </div>
+                    <div>
+                        <img src="./assets/img/icon-umberella@2x.png" alt="" width="22"><span>20%</span>
+                    </div>
+                    <div>
+                        <img src="./assets/img/icon-wind@2x.png" alt="" width="22"><span id="wind-speed">18Km/hr</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 d-flex p-0">
+                <div ng-repeat="info in allInfo.daily | limitTo: 6">
+                    <div ng-class="$odd ? 'days-odd' : 'days-even'" class="days-name" id="day1">{{days[((today.getDay()+$index+1) % 14)%7]}}</div>
+                    <div class="tues-weather">
+                        <img ng-src="./assets/img/icon-2.svg" alt="" width="55" height="75">
+                        <div class="d-flex justify-content-center">
+                            <h3 id="temp-1">{{Math.floor(info.temp.day)}}</h3>
+                           <h3><sup>o</sup>C</h3>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <p id="night-1">{{Math.floor(info.temp.night)}}</p><span><sup>o</sup>C</span>
+                           </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
